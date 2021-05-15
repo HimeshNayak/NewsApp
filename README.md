@@ -2,8 +2,8 @@
 An App to display the news articles using apis
 
 ## ScreenShots of the App
-![List of News Articles](https://github.com/HimeshNayak/NewsApp/tree/master/assets/ss2.jpeg)
-![WebView to view to complete the full article](https://github.com/HimeshNayak/NewsApp/tree/master/assets/ss1.jpeg)
+![List of News Articles](https://github.com/HimeshNayak/NewsApp/blob/master/assets/ss2.jpeg)
+![WebView to view to complete the full article](https://github.com/HimeshNayak/NewsApp/blob/master/assets/ss1.jpeg)
 
 ## Working of the App
 Used http package for using http.read() on api: https://hubblesite.org/api/v3/news
