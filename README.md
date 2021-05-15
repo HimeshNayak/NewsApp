@@ -1,16 +1,44 @@
 # news
-
 An App to display the news articles using apis
 
-## Getting Started
+## ScreenShots of the App
+![List of News Articles](https://github.com/HimeshNayak/NewsApp/tree/master/assets/ss2.jpeg)
+![WebView to view to complete the full article](https://github.com/HimeshNayak/NewsApp/tree/master/assets/ss1.jpeg)
 
-This project is a starting point for a Flutter application.
+## Working of the App
+Used http package for using http.read() on api: https://hubblesite.org/api/v3/news
+```
+List<dynamic> newsList = [];
+Future<List<dynamic>> getNewsMap() async {
+  await http.read(Uri.parse('https://hubblesite.org/api/v3/news'))
+    .then((value) {
+      newsList = jsonDecode(value);
+  });
+  return newsList;
+}
+```
 
-A few resources to get you started if this is your first Flutter project:
+Used FutureBuilder to get the response from http request
+```
+FutureBuilder<List<dynamic>>(
+  future: getNewsMap(),
+  builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
+    if (snapshot.hasData) {
+      return buildNewsList(snapshot.data);
+  }
+  return CircularProgressIndicator();
+})
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Displayed the response in a ListView.builder()
+```
+ListView.builder(
+  itemCount: newsList?.length,
+  itemBuilder: (context, item) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      child: Article(news: newsList?[item]),
+    );
+  },
+);
+```
