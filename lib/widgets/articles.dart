@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/articleScreen.dart';
 
 class Article extends StatelessWidget {
   final dynamic news;
@@ -21,7 +22,17 @@ class Article extends StatelessWidget {
             height: 10,
           ),
           OutlinedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ArticleScreen(
+                    heading: news['name'],
+                    url: news['url'],
+                  ),
+                ),
+              );
+            },
             child: Text('View Article'),
           ),
         ],

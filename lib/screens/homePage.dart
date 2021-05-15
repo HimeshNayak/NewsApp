@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import '../widgets/articles.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -41,13 +41,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget buildNewsList(List<dynamic> newsList) {
+  Widget buildNewsList(List<dynamic>? newsList) {
     return ListView.builder(
-      itemCount: newsList.length,
+      itemCount: newsList?.length,
       itemBuilder: (context, item) {
         return Container(
           padding: EdgeInsets.all(10),
-          child: Article(news: newsList[item]),
+          child: Article(news: newsList?[item]),
         );
       },
     );
