@@ -1,6 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
+import '../widgets/articles.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -45,8 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
       itemCount: newsList.length,
       itemBuilder: (context, item) {
         return Container(
-            padding: EdgeInsets.all(10),
-            child: Text(newsList[item].toString()));
+          padding: EdgeInsets.all(10),
+          child: Article(news: newsList[item]),
+        );
       },
     );
   }
