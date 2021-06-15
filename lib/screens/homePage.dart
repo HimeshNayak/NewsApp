@@ -15,10 +15,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<List<dynamic>> getNewsMap() async {
     await http
-        .read(Uri.parse('https://hubblesite.org/api/v3/news'))
-        .then((value) {
-      newsList = jsonDecode(value);
-    });
+        .read(
+      Uri.parse('https://hubblesite.org/api/v3/news'),
+    )
+        .then(
+      (value) {
+        newsList = jsonDecode(value);
+      },
+    );
     return newsList;
   }
 
@@ -30,13 +34,14 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: FutureBuilder<List<dynamic>>(
-            future: getNewsMap(),
-            builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
-              if (snapshot.hasData) {
-                return buildNewsList(snapshot.data);
-              }
-              return CircularProgressIndicator();
-            }),
+          future: getNewsMap(),
+          builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
+            if (snapshot.hasData) {
+              return buildNewsList(snapshot.data);
+            }
+            return CircularProgressIndicator();
+          },
+        ),
       ),
     );
   }
@@ -47,7 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
       itemBuilder: (context, item) {
         return Container(
           padding: EdgeInsets.all(10),
-          child: Article(news: newsList?[item]),
+          child: Article(
+            news: newsList?[item],
+          ),
         );
       },
     );
