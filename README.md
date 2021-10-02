@@ -4,8 +4,8 @@ An App to display the news articles using apis
 ## ScreenShots of the App
 <p float = "left">
 <img src = "https://github.com/HimeshNayak/NewsApp/blob/master/assets/ss2.jpeg" alt="drawing" style="width:200px;/>
-  <img src = "https://github.com/HimeshNayak/NewsApp/blob/master/assets/ss1.jpeg" alt="drawing" style="width:200px;/>
-  </p>
+<img src = "https://github.com/HimeshNayak/NewsApp/blob/master/assets/ss1.jpeg" alt="drawing" style="width:200px;/>
+</p>
 <!-- ![List of News Articles](https://github.com/HimeshNayak/NewsApp/blob/master/assets/ss2.jpeg)
 ![WebView to view to complete the full article](https://github.com/HimeshNayak/NewsApp/blob/master/assets/ss1.jpeg) -->
 
